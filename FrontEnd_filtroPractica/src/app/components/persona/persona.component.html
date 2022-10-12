@@ -1,0 +1,72 @@
+<div>
+
+  <form class="content"  (submit)="ConsultarPersonal()" >
+
+
+  <div class="submit-form" >
+
+       <div class="row">
+          <div class="col-lg-12">
+              <h6>Consulta por filtro </h6>
+          </div>
+      </div>
+
+      <div class="row" style="margin-top: 2%">
+              <label for="Nombre" class="col-lg-1">Nombre</label>
+              <div class="col-lg-4">
+                  <input type="text" class="form-control" name="Nombre" id="Nombre"   [(ngModel)]= "nombres" />
+              </div>
+              <label for="Trabajo" class="col-lg-1">Trabajo</label>
+              <div class="col-lg-4">
+                  <input type="text" class="form-control" name="Trabajo" id="Trabajo"    [(ngModel)]= "trabajo"  />
+              </div>
+       </div>
+
+       <div class="row" style="margin-top: 2%">
+       <label for="Correo" class="col-lg-1">Correo</label>
+              <div class="col-lg-4">
+                  <input type="text" class="form-control" name="Correo" id="Correo"   [(ngModel)]= "correo"  />
+              </div>
+        <label for="Pais" class="col-lg-1">Pais</label>
+              <div class="col-lg-4">
+                  <select  id="Pais"   name="Pais"   class="form-control"   [(ngModel)]="selregion" >
+                      <option value="-1">Seleccione</option>
+                      <option  *ngFor="let aux of region"    value="{{ aux }}"  >
+                        {{ aux }}
+                      </option>
+                  </select>
+              </div>
+       </div>
+     </div>
+     <br>
+     <div class="mx-auto" style="width: 200px;">
+      <button class="btn btn-success"  >Filtrar</button>
+  </div>
+
+       <div class="row" style="margin-top: 3%">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Trabajo</th>
+                          <th>Correo</th>
+                          <th>Pais</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let aux of personal">
+                      <td>{{aux.nombres}}</td>
+                      <td>{{aux.trabajo}}</td>
+                      <td>{{aux.correo}}</td>
+                      <td>{{aux.region}}</td>
+                    </tr>
+
+
+                  </tbody>
+
+
+              </table>
+
+
+       </div>
+
